@@ -19,7 +19,7 @@ write_excluded_path = '/media/alxfed/toca/aa-crm/preparation/permits_with_unknow
 write_new_entities = '/media/alxfed/toca/aa-crm/preparation/new_companies.csv'
 
 reference = pd.read_csv(reference_path)
-known_entities_list = reference['Name']
+known_entities = reference['Name'].values
 
 rows = []
 excluded_rows = []
@@ -33,14 +33,15 @@ with open(read_path) as f:
     for r in f_csv:
         row = Row(*r)
         entity = row.CONTRACTOR_GENERAL_CONTRACTOR_Name
-        if entity in known_entities_list:
+        if entity in known_entities:
             rows.append(row)
         else:
             excluded_rows.append(row)
 
+
 write_headers = headers
 write_rows = rows
-write_exclued_rows = excluded_rows
+write_excluded_rows = excluded_rows
 
 with open(write_path,'w') as f:
     f_csv = csv.writer(f)
@@ -50,4 +51,4 @@ with open(write_path,'w') as f:
 with open(write_excluded_path,'w') as f:
     f_csv = csv.writer(f)
     f_csv.writerow(write_headers)
-    f_csv.writerows(write_exclued_rows)
+    f_csv.writerows(write_excluded_rows)
