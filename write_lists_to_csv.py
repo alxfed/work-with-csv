@@ -1,5 +1,5 @@
 """
-write lists of tuples or lists into a csv
+write lists of tuples or lists to a csv
 """
 import csv
 
