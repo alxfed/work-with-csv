@@ -50,37 +50,27 @@ with open(read_path) as f:
                 if row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Landline:
                     phone_landline = row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Landline
                     phone_number = phone_landline
-                else:
-                    phone_landline = ''
-                new_entity.update({'Phone Landline': phone_landline})
+                    new_entity.update({'Phone Landline': phone_landline})
                 if row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Mobile:
                     phone_mobile = row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Mobile
                     if not phone_number:
                         phone_number = phone_mobile
-                else:
-                    phone_mobile = ''
-                new_entity.update({'Phone Mobile': phone_mobile})
+                    new_entity.update({'Phone Mobile': phone_mobile})
                 if row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Voip:
                     phone_voip = row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Voip
                     if not phone_number:
                         phone_number = phone_voip
-                else:
-                    phone_voip = ''
-                new_entity.update({'Phone VoIP': phone_voip})
+                    new_entity.update({'Phone VoIP': phone_voip})
                 if row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Toll:
                     phone_toll = row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Toll
                     if not phone_number:
                         phone_number = phone_toll
-                else:
-                    phone_toll = ''
-                new_entity.update({'Phone Toll': phone_toll})
+                    new_entity.update({'Phone Toll': phone_toll})
                 if row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Undinined:
                     phone_unindentified = row.CONTRACTOR_GENERAL_CONTRACTOR_Phone_Undinined
                     if not phone_number:
                         phone_number = phone_unindentified
-                else:
-                    phone_unindentified = ''
-                new_entity.update({'Phone Unidentified': phone_unindentified})
+                    new_entity.update({'Phone Unidentified': phone_unindentified})
                 new_entity.update({'Phone Number': phone_number})
                 new_entity.update({'Company owner': 'sashadoroshko@marfacabinets.com'})
                 new_entity.update({'Lead Status': 'New'})
