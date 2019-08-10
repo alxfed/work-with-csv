@@ -1,6 +1,7 @@
 """
 given: a csv file with empty cells in a column with mandatory parameter;
-needed: a csv file _without_ the lines with missing parameter.
+needed: a csv file _without_ the lines with missing parameter;
+byproduct: a csv file with the excluded lines.
 """
 import csv
 import re
