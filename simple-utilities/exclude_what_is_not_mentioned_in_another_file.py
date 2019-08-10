@@ -10,12 +10,16 @@ byproduct: a csv file with a list of _new_ (previously unknown)
 import csv
 import re
 from collections import namedtuple
+import pandas as pd
 
-read_path = '/media/alxfed/toca/aa-crm/preparation/permits-09-08-2019_10_54_27.csv'
+read_path = '/media/alxfed/toca/aa-crm/preparation/permits_with_general_contractor.csv'
 reference_path = '/media/alxfed/toca/aa-crm/preparation/hubspot-crm-exports-all-companies-2019-08-10.csv'
 write_path = '/media/alxfed/toca/aa-crm/preparation/permits_with_known_general_contractor.csv'
 write_excluded_path = '/media/alxfed/toca/aa-crm/preparation/permits_with_unknown_general_contractor.csv'
 write_new_entities = '/media/alxfed/toca/aa-crm/preparation/new_companies.csv'
+
+reference = pd.read_csv(reference_path)
+known_entities_list = reference['Name']
 
 rows = []
 excluded_rows = []
@@ -28,10 +32,11 @@ with open(read_path) as f:
     Row = namedtuple('Row', tuple_headers)
     for r in f_csv:
         row = Row(*r)
-        if not row.CONTRACTOR_GENERAL_CONTRACTOR_Name:
-            excluded_rows.append(row)
-        else:
+        entity = row.CONTRACTOR_GENERAL_CONTRACTOR_Name
+        if entity in known_entities_list:
             rows.append(row)
+        else:
+            excluded_rows.append(row)
 
 write_headers = headers
 write_rows = rows
