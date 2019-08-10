@@ -7,8 +7,8 @@ import re
 from collections import namedtuple
 
 read_path = '/media/alxfed/toca/aa-crm/preparation/permits-09-08-2019_10_54_27.csv'
-write_path = '/media/alxfed/toca/aa-crm/preparation/companies_with_general_contractor.csv'
-write_excluded_path = '/media/alxfed/toca/aa-crm/preparation/companies_without_general_contractor.csv'
+write_path = '/media/alxfed/toca/aa-crm/preparation/permits_with_general_contractor.csv'
+write_excluded_path = '/media/alxfed/toca/aa-crm/preparation/permits_without_general_contractor.csv'
 
 rows = []
 excluded_rows = []
