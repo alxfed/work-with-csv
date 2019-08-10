@@ -11,7 +11,9 @@ import csv
 import re
 from collections import namedtuple
 import pandas as pd
+import os
 
+owner_email = os.environ['OWNER_EMAIL']
 read_path = '/media/alxfed/toca/aa-crm/preparation/permits_with_general_contractor.csv'
 reference_path = '/media/alxfed/toca/aa-crm/preparation/hubspot-crm-exports-all-companies-2019-08-10.csv'
 write_path = '/media/alxfed/toca/aa-crm/preparation/permits_with_known_general_contractor.csv'
@@ -42,7 +44,9 @@ with open(read_path) as f:
             rows.append(row)
         else:
             excluded_rows.append(row)
-            if not entity in seen:
+            if entity in seen:
+                pass
+            else:
                 seen.add(entity)
                 new_entity = {}; phone_number = ''
                 new_entity.update({'Name': entity})
@@ -72,9 +76,9 @@ with open(read_path) as f:
                         phone_number = phone_unindentified
                     new_entity.update({'Phone Unidentified': phone_unindentified})
                 new_entity.update({'Phone Number': phone_number})
-                new_entity.update({'Company owner': 'sashadoroshko@marfacabinets.com'})
+                new_entity.update({'Company owner': owner_email})
                 new_entity.update({'Lead Status': 'New'})
-            new_entities_rows.append(new_entity)
+                new_entities_rows.append(new_entity)
 
 write_headers = headers
 write_rows = rows
