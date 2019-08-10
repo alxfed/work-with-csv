@@ -1,3 +1,6 @@
+"""
+reading rows of csv into (immutable) named tuples
+"""
 import csv
 from collections import namedtuple
 

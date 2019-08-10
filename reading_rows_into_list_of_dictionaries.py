@@ -1,3 +1,6 @@
+"""
+Reading rows of a csv file into a (mutable) sequence/list of dictionaries
+"""
 import csv
 
 
