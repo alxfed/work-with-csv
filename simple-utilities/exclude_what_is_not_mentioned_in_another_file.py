@@ -19,6 +19,7 @@ write_new_entities = '/media/alxfed/toca/aa-crm/preparation/new_companies.csv'
 
 rows = []
 excluded_rows = []
+new_entities_rows =[]
 
 with open(read_path) as f:
     f_csv = csv.reader(f)
