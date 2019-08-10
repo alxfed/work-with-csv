@@ -13,6 +13,7 @@ from collections import namedtuple
 import pandas as pd
 import os
 
+
 owner_email = os.environ['OWNER_EMAIL']
 read_path = '/media/alxfed/toca/aa-crm/preparation/permits_with_general_contractor.csv'
 reference_path = '/media/alxfed/toca/aa-crm/preparation/hubspot-crm-exports-all-companies-2019-08-10.csv'
