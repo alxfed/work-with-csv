@@ -16,7 +16,6 @@ excluded_rows = []
 with open(read_path) as f:
     f_csv = csv.reader(f)
     headers = next(f_csv)
-    # replace spaces in headers with underscores
     tuple_headers = [re.sub('[^a-zA-Z_]', '_', h) for h in headers]
     Row = namedtuple('Row', tuple_headers)
     for r in f_csv:
