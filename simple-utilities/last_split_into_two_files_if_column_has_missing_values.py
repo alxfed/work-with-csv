@@ -9,7 +9,7 @@ from collections import namedtuple
 
 read_path = '/media/alxfed/toca/aa-crm/preparation/companies_with_added_phone.csv'
 write_path = '/media/alxfed/toca/aa-crm/preparation/companies_to_update.csv'
-write_excluded_path = '/media/alxfed/toca/aa-crm/preparation/companies_hopeless.csv'
+write_excluded_path = '/media/alxfed/toca/aa-crm/preparation/companies_not_to_update.csv'
 
 rows = []
 excluded_rows = []
