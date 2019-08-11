@@ -33,7 +33,7 @@ write_headers = fieldnames
 write_rows = rows
 
 
-with open(write_rows,'w') as f:
+with open(write_path,'w') as f:
     f_csv = csv.DictWriter(f, write_headers)
     f_csv.writeheader()
     f_csv.writerows(write_rows)
