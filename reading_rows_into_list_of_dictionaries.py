@@ -8,7 +8,7 @@ file_path = '/media/alxfed/toca/aa-crm/preparation/unknown_companies.csv'
 fieldnames = []
 
 with open(file_path) as f:
-    f_csv = csv.DictReader(f)
+    f_csv = csv.DictReader(f, restkey='Rest', restval='')
     for row in f_csv:
         a = row['Name']
         b = row['Street Address']
