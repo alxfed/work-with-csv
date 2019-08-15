@@ -35,18 +35,24 @@ else:
     exit()
 
 # initiate the big objects
-rows = OrderedDict()
-fieldnames = []
+rows = []
+fieldnames = ['Name', 'Phone Mobile', 'Phone Voip', 'Phone Toll',
+              'Phone Landline', 'Phone Unknown', 'Contact Person',
+              'Address', 'City', 'Zipcode', 'State', 'Category',
+              'Website', 'Facebook', 'Twitter', 'Google',
+              'Linkedin', 'emails', 'email_class']
+
 
 with open(file_path) as f:
     f_csv = csv.DictReader(f, restkey='Rest', restval='')
     for row in f_csv:
-        if not row['Website']:  # check whether there is a website
+        website = row['Website']
+        if not website:  # check whether there is a website
             row.update({'emails': ''})
             row.update({'email_class': ''})
             pass
         else:
-            tsd, td, tsu = extract(row['Website'])  # tldextract
+            tsd, td, tsu = extract(website)  # tldextract
             payload = {'domain': td + '.' + tsu,
                        'company_name': row['Name']}
             r = requests.post(api_url, headers=headers,
@@ -54,7 +60,7 @@ with open(file_path) as f:
             if r.status_code > 202:
                 """errors
                 """
-                print('Wow! Errors happened!')
+                print('Wow! Errors happened!', r.status_code)
                 pass
             elif r.status_code < 203:
                 while r.status_code != 200:
@@ -66,16 +72,17 @@ with open(file_path) as f:
                 resp = r.json()
                 row.update({'emails': " ".join(resp['emails'])})
                 row.update({'email_class': resp['email_class']})
+                print(row['Name'], row['emails'], row['email_class'])
                 pass
             else:
                 print('I dunno what this is...', r.status_code)
                 pass
-        rows.update(row)
-    fieldnames = f_csv._fieldnames
+        rows.append(row)
+    # fieldnames = f_csv._fieldnames
     # fieldnames.extend(['emails', 'email_class'])
 
 with open(output_file_path,'w') as f:
-    f_csv = csv.DictWriter(f, fieldnames)
+    f_csv = csv.DictWriter(f, fieldnames=fieldnames)
     f_csv.writeheader()
     f_csv.writerows(rows)
 
