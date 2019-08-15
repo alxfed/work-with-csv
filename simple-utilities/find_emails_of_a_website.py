@@ -72,7 +72,7 @@ with open(file_path) as f:
                 pass
         rows.update(row)
     fieldnames = f_csv._fieldnames
-    fieldnames.extend(['emails', 'email_class'])
+    # fieldnames.extend(['emails', 'email_class'])
 
 with open(output_file_path,'w') as f:
     f_csv = csv.DictWriter(f, fieldnames)
