@@ -11,6 +11,7 @@ import requests
 
 # constants
 file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_interor.csv'
+output_file_path = '/media/alxfed/toca/aa-crm/other-lists/archs_with_emails.csv'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
 api_key = os.environ['API_KEY']
 headers = {'X-Api-Key': api_key}
@@ -24,6 +25,7 @@ with open(file_path) as f:
     for row in f_csv:
         if not row['Website']:  # check whether there is a website
             row.update({'emails': ''})
+            row.update({'email_class': ''})
             pass
         else:
             tsd, td, tsu = extract(row['Website'])  # tldextract
@@ -44,16 +46,18 @@ with open(file_path) as f:
                     if r.status_code == 200:
                         break
                 resp = r.text.json()
-                row['emails'] = resp
+                row.update({'emails': resp['emails']})
+                row.update({'email_class': resp['email_class']})
+                pass
             else:
                 print('I dunno what this is...', r.status_code)
                 pass
         rows.update(row)
     fieldnames = f_csv._fieldnames
+    fieldnames.extend(['emails', 'email_class'])
 
-
-with open(file_path,'w') as f:
-    f_csv = csv.DictWriter(f, headers)
+with open(output_file_path,'w') as f:
+    f_csv = csv.DictWriter(f, fieldnames)
     f_csv.writeheader()
     f_csv.writerows(rows)
 print('ok')
