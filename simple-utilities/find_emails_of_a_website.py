@@ -18,13 +18,16 @@ api_key = os.environ['API_KEY']
 # use this header with all the API calls
 headers = {'X-Api-Key': api_key}
 
-# check the credits
+# check the number of credits left
 r = requests.get(credits_check_url, headers=headers)
 if r.status_code==200:
-    number = r.text.json["credits_left"]
+    resp = r.json()
+    number = resp['credits_left']
     if number <=100:
-        print('Less than 100 credits left!')
+        print('Less than 100 credits! Im not working!')
         exit()
+    else:
+        print(number, 'credits left')
 else:
     exit()
 
