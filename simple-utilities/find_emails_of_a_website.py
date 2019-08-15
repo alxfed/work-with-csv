@@ -3,18 +3,20 @@ take a website name, split it and make an async request, searching
 for all the emails in the domain.
 """
 import csv
-import os
+from os import environ
+from sys import exit
 import time
 from tldextract import extract
 from collections import OrderedDict
 import requests
+
 
 # constants
 file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_interor.csv'
 output_file_path = '/media/alxfed/toca/aa-crm/other-lists/archs_with_emails.csv'
 credits_check_url = 'https://api.anymailfinder.com/v4.1/account/hits_left.json'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
-api_key = os.environ['API_KEY']
+api_key = environ['API_KEY']
 # use this header with all the API calls
 headers = {'X-Api-Key': api_key}
 
@@ -32,6 +34,7 @@ else:
     print('The API key is not working.')
     exit()
 
+# initiate the big objects
 rows = OrderedDict()
 fieldnames = []
 
@@ -75,4 +78,5 @@ with open(output_file_path,'w') as f:
     f_csv = csv.DictWriter(f, fieldnames)
     f_csv.writeheader()
     f_csv.writerows(rows)
-print('ok')
+
+print('It looks like everything worked. OK.')
