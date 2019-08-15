@@ -12,7 +12,7 @@ import requests
 
 
 # constants
-file_path = '/media/alxfed/toca/aa-crm/other-lists/arcs_interor_test'
+file_path = '/media/alxfed/toca/aa-crm/other-lists/arcs_interor_test.csv'
 output_file_path = '/media/alxfed/toca/aa-crm/other-lists/archs_with_emails_test.csv'
 credits_check_url = 'https://api.anymailfinder.com/v4.1/account/hits_left.json'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
