@@ -12,11 +12,22 @@ import requests
 # constants
 file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_interor.csv'
 output_file_path = '/media/alxfed/toca/aa-crm/other-lists/archs_with_emails.csv'
+credits_check_url = 'https://api.anymailfinder.com/v4.1/account/hits_left.json'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
 api_key = os.environ['API_KEY']
+# use this header with all the API calls
 headers = {'X-Api-Key': api_key}
 
 # check the credits
+r = requests.get(credits_check_url, headers=headers)
+if r.status_code==200:
+    number = r.text.json["credits_left"]
+    if number <=100:
+        print('Less than 100 credits left!')
+        exit()
+else:
+    exit()
+
 rows = OrderedDict()
 fieldnames = []
 
@@ -36,7 +47,7 @@ with open(file_path) as f:
             if r.status_code > 202:
                 """errors
                 """
-                print('errors happened!')
+                print('Wow! Errors happened!')
                 pass
             elif r.status_code < 203:
                 while r.status_code != 200:
