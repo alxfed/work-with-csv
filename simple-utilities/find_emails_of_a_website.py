@@ -24,11 +24,12 @@ if r.status_code==200:
     resp = r.json()
     number = resp['credits_left']
     if number <=100:
-        print('Less than 100 credits! Im not working!')
+        print("Less than 100 credits! I'm not working!")
         exit()
     else:
         print(number, 'credits left')
 else:
+    print('The API key is not working.')
     exit()
 
 rows = OrderedDict()
@@ -59,7 +60,7 @@ with open(file_path) as f:
                                          headers=headers, json=payload)
                     if r.status_code == 200:
                         break
-                resp = r.text.json()
+                resp = r.json()
                 row.update({'emails': resp['emails']})
                 row.update({'email_class': resp['email_class']})
                 pass
