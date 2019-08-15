@@ -26,7 +26,7 @@ if r.status_code==200:
     resp = r.json()
     number = resp['credits_left']
     if number <=100:
-        print("Less than 100 credits! I'm not working!")
+        print("Less than 100 credits! I'm not working, sorry!")
         exit()
     else:
         print(number, 'credits left')
@@ -64,7 +64,7 @@ with open(file_path) as f:
                     if r.status_code == 200:
                         break
                 resp = r.json()
-                row.update({'emails': resp['emails']})
+                row.update({'emails': " ".join(resp['emails'])})
                 row.update({'email_class': resp['email_class']})
                 pass
             else:
