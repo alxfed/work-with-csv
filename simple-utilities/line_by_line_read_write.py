@@ -35,6 +35,9 @@ else:
     print('The API key is not working.', r.status_code)
     exit()
 
+# should be excluded
+# wordpress.com, houzz.com, yelp.com, facebook.com
+
 # initiate the big objects
 rows = []
 fieldnames = ['Name', 'Phone Mobile', 'Phone Voip', 'Phone Toll',
