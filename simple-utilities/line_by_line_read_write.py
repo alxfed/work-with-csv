@@ -32,7 +32,7 @@ if r.status_code==200:
     else:
         print(number, 'credits left')
 else:
-    print('The API key is not working.')
+    print('The API key is not working.', r.status_code)
     exit()
 
 # initiate the big objects
