@@ -14,7 +14,6 @@ import requests
 # constants
 file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_interor.csv'
 output_file_path = '/media/alxfed/toca/aa-crm/other-lists/output_archs_with_emails.csv'
-final_file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_with_emails.csv'
 credits_check_url = 'https://api.anymailfinder.com/v4.1/account/hits_left.json'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
 api_key = environ['API_KEY']
@@ -46,9 +45,6 @@ fieldnames = ['Name', 'Phone Mobile', 'Phone Voip', 'Phone Toll',
 
 with open(file_path) as f:
     f_csv = csv.DictReader(f, restkey='Rest', restval='')
-    with open(output_file_path, 'w') as wr:
-        wr_csv = csv.DictWriter(wr, fieldnames=fieldnames)
-        wr_csv.writeheader()
         for row in f_csv:
             website = row['Website']
             if not website:  # check whether there is a website
@@ -90,7 +86,6 @@ with open(file_path) as f:
                 else:
                     print('I dunno what this is...', r.status_code)
                     pass
-            wr_csv.writerow(row)
             rows.append(row)
     # fieldnames = f_csv._fieldnames
     # fieldnames.extend(['emails', 'email_class'])
