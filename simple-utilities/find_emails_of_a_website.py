@@ -12,8 +12,8 @@ import requests
 
 
 # constants
-file_path = '/media/alxfed/toca/aa-crm/other-lists/arcs_interor_test.csv'
-output_file_path = '/media/alxfed/toca/aa-crm/other-lists/archs_with_emails_test.csv'
+file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_interor.csv'
+output_file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_with_emails.csv'
 credits_check_url = 'https://api.anymailfinder.com/v4.1/account/hits_left.json'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
 api_key = environ['API_KEY']
@@ -86,4 +86,4 @@ with open(output_file_path,'w') as f:
     f_csv.writeheader()
     f_csv.writerows(rows)
 
-print('It looks like everything worked. OK.')
+print('OK')
