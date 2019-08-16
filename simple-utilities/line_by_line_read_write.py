@@ -12,9 +12,9 @@ import requests
 
 
 # constants
-file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_interor.csv'
-output_file_path = '/media/alxfed/toca/aa-crm/other-lists/output_archs_with_emails.csv'
-final_file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_with_emails.csv'
+file_path = '/media/alxfed/toca/aa-crm/other-lists/archs_with_websites.csv'
+output_file_path = '/media/alxfed/toca/aa-crm/other-lists/output_archs_with_emails_more.csv'
+final_file_path = '/media/alxfed/toca/aa-crm/other-lists/08122019_archs_with_emails_more.csv'
 credits_check_url = 'https://api.anymailfinder.com/v4.1/account/hits_left.json'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
 api_key = environ['API_KEY']

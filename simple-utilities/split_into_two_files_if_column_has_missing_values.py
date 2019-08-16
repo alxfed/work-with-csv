@@ -7,9 +7,9 @@ import csv
 import re
 from collections import namedtuple
 
-read_path = '/media/alxfed/toca/aa-crm/preparation/permits-09-08-2019_10_54_27.csv'
-write_path = '/media/alxfed/toca/aa-crm/preparation/permits_with_general_contractor.csv'
-write_excluded_path = '/media/alxfed/toca/aa-crm/preparation/permits_without_general_contractor.csv'
+read_path = '/media/alxfed/toca/aa-crm/other-lists/archs_no_emailse.csv'
+write_path = '/media/alxfed/toca/aa-crm/other-lists/archs_with_websites.csv'
+write_excluded_path = '/media/alxfed/toca/aa-crm/other-lists/archs_without_websites.csv'
 
 rows = []
 excluded_rows = []
@@ -21,7 +21,7 @@ with open(read_path) as f:
     Row = namedtuple('Row', tuple_headers)
     for r in f_csv:
         row = Row(*r)
-        if not row.CONTRACTOR_GENERAL_CONTRACTOR_Name:
+        if not row.Website:
             excluded_rows.append(row)
         else:
             rows.append(row)
