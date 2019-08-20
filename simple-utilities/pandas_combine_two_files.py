@@ -20,4 +20,4 @@ def FindEmails(row):
 
 output = origin
 output['emails'] = origin.apply(FindEmails, axis=1)
-output.to_csv(output_file_path)
+output.to_csv(output_file_path, index=False)
