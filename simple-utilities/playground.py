@@ -10,6 +10,7 @@ from email.utils import parseaddr
 
 email = 'alex.fedotov@aol.com'
 
-name = email.split('@')[0]
+left_side, right_side = email.split('@')
+name, surname = left_side.split('.')
 
 print('ok')
