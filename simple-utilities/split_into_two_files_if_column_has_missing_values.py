@@ -7,9 +7,9 @@ import csv
 import re
 from collections import namedtuple
 
-read_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath_designers.csv'
-write_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath_designers_with_websites.csv'
-write_excluded_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath_designers_without_websites.csv'
+read_path = '/media/alxfed/toca/aa-crm/enrich/interior_designers.csv'
+write_path = '/media/alxfed/toca/aa-crm/enrich/interior_designers_with_websites.csv'
+write_excluded_path = '/media/alxfed/toca/aa-crm/enrich/interior_designers_without_websites.csv'
 
 rows = []
 excluded_rows = []
