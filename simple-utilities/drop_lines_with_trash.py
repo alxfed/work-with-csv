@@ -9,7 +9,7 @@ import csv
 read_path = '/media/alxfed/toca/aa-crm/enrich/interior_unprocessed.csv'
 write_path = '/media/alxfed/toca/aa-crm/enrich/interior.csv'
 
-trash_list = ['houzz', 'yelp']
+trash_list = ['houzz', 'yelp', 'lowes']
 
 fieldnames = []
 rows = []
