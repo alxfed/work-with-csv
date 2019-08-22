@@ -6,10 +6,10 @@ needed: a csv file with these lines dropped
 import csv
 
 
-read_path = '/media/alxfed/toca/aa-crm/enrich/interior_unprocessed.csv'
-write_path = '/media/alxfed/toca/aa-crm/enrich/interior.csv'
+read_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath_unprocessed.csv'
+write_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath.csv'
 
-trash_list = ['houzz', 'yelp', 'lowes']
+trash_list = ['houzz', 'yelp', 'lowes', 'homedepot']
 
 fieldnames = []
 rows = []

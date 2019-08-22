@@ -36,7 +36,8 @@ else:
 
 # initiate the big objects
 rows = []
-fieldnames = ['Name', 'Phone Mobile', 'Phone Voip', 'Phone Toll',
+fieldnames = ['Name', 'Type', 'Phone Number', 'Phone Mobile',
+              'Phone Voip', 'Phone Toll',
               'Phone Landline', 'Phone Unknown', 'Contact Person',
               'Address', 'City', 'Zipcode', 'State', 'Category',
               'Website', 'Facebook', 'Twitter', 'Google',
@@ -56,7 +57,7 @@ with open(file_path) as f:
             payload = {'domain': td + '.' + tsu,
                        'company_name': row['Name']}
             r = requests.post(api_url, headers=headers,
-                              json=payload, timeout=60)
+                              json=payload, timeout=30)
             if r.status_code > 202:
                 """errors
                 """
