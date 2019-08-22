@@ -1,19 +1,27 @@
 """
-given: a csv file with a list of objects that have no value of a
-    property
-needed: a csv file with objects that have this value sythesized from
-    the values taken from other columns according to a rule
+given: a csv file with a list of objects that may have a value of the
+    property meaning that it is trash
+needed: a csv file with these lines dropped
 """
 import csv
 
 
-read_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath_designers_with_websites_and_added_phone.csv'
-write_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath_designers_no_duplicates.csv'
+read_path = '/media/alxfed/toca/aa-crm/enrich/interior_unprocessed.csv'
+write_path = '/media/alxfed/toca/aa-crm/enrich/interior.csv'
+
+list_of_trash = ['houzz', 'yelp']
 
 fieldnames = []
 rows = []
 seen = set()
 duplicates = []
+
+def NotTrash(text, trash_list):
+    for trash in trash_list:
+        if trash in text:
+            return None
+        else:
+            return text
 
 with open(read_path) as f:
     f_csv = csv.DictReader(f)

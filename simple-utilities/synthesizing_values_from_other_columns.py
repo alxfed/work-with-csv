@@ -7,8 +7,8 @@ needed: a csv file with objects that have this value sythesized from
 import csv
 
 
-read_path = '/media/alxfed/toca/aa-crm/preparation/companies_without_phone.csv'
-write_path = '/media/alxfed/toca/aa-crm/preparation/companies_with_added_phone.csv'
+read_path = '/media/alxfed/toca/aa-crm/enrich/interior_designers_with_websites.csv'
+write_path = '/media/alxfed/toca/aa-crm/enrich/interior_designers_with_websites_and_added_phone.csv'
 
 fieldnames = []
 rows = []
@@ -20,12 +20,12 @@ with open(read_path) as f:
             row['Phone Number'] = row['Phone Landline']
         if row['Phone Mobile'] and not row['Phone Number']:
             row['Phone Number'] = row['Phone Mobile']
-        if row['Phone VoIP'] and not row['Phone Number']:
-            row['Phone Number'] = row['Phone VoIP']
+        if row['Phone Voip'] and not row['Phone Number']:
+            row['Phone Number'] = row['Phone Voip']
         if row['Phone Toll'] and not row['Phone Number']:
             row['Phone Number'] = row['Phone Toll']
-        if row['Phone Unidentified'] and not row['Phone Number']:
-            row['Phone Number'] = row['Phone Unidentified']
+        if row['Phone Unknown'] and not row['Phone Number']:
+            row['Phone Number'] = row['Phone Unknown']
         rows.append(row)
     fieldnames = f_csv._fieldnames
 
