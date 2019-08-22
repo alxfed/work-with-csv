@@ -12,8 +12,8 @@ import requests
 
 
 # constants
-file_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath.csv'
-output_file_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath_with_emails.csv'
+file_path = '/media/alxfed/toca/aa-crm/enrich/interior.csv'
+output_file_path = '/media/alxfed/toca/aa-crm/enrich/interior_with_emails.csv'
 credits_check_url = 'https://api.anymailfinder.com/v4.1/account/hits_left.json'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
 api_key = environ['API_KEY']
