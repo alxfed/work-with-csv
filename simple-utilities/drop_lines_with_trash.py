@@ -9,28 +9,27 @@ import csv
 read_path = '/media/alxfed/toca/aa-crm/enrich/interior_unprocessed.csv'
 write_path = '/media/alxfed/toca/aa-crm/enrich/interior.csv'
 
-trash = ['houzz', 'yelp']
+trash_list = ['houzz', 'yelp']
 
 fieldnames = []
 rows = []
 seen = set()
 duplicates = []
 
-def NotTrash(text, trash):
-    if trash in text:
-        return None
-    else:
-        return text
+def NotTrash(text, trash_list):
+    for trash in trash_list:
+        if trash in text:
+            return None
+    return text
 
 with open(read_path) as f:
     f_csv = csv.DictReader(f)
     for row in f_csv:
-        if NotTrash(row['Website'], trash):
+        if NotTrash(row['Website'], trash_list):
             rows.append(row)
-
     fieldnames = f_csv._fieldnames
 
-print('Duplicates: ', len(duplicates))
+
 write_headers = fieldnames
 write_rows = rows
 
