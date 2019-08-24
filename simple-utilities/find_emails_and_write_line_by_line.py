@@ -72,7 +72,7 @@ with open(file_path) as f:
                                          headers=headers, json=payload)
                     if r.status_code == 200:
                         break
-                    elif r.status_code >= 400
+                    elif r.status_code >= 400:
                         timeout = True
                         break
                     else:
