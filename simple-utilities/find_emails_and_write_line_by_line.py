@@ -65,7 +65,9 @@ with open(file_path) as f:
                 print('Errors happen... ', r.status_code)
                 pass
             elif r.status_code < 203:
-                timeout = False; attempts = 0
+                timeout = False
+                not_found = False
+                attempts = 0
                 while r.status_code != 200:
                     time.sleep(3)
                     r = requests.request('POST', api_url,
@@ -73,7 +75,7 @@ with open(file_path) as f:
                     if r.status_code == 200:
                         break
                     elif r.status_code >= 400:
-                        timeout = True
+                        not_found = True
                         break
                     else:
                         attempts += 1
@@ -81,13 +83,15 @@ with open(file_path) as f:
                         if attempts > 10:
                             timeout = True
                             break
-                if not timeout:
+                if not timeout or not_found:
                     resp = r.json()
                     row.update({'emails': " ".join(resp['emails'])})
                     row.update({'email_class': resp['email_class']})
                     print(row['Name'], row['emails'], row['email_class'])
-                else:
+                elif timeout:
                     print(row['Name'], 'Timeout')
+                elif not_found:
+                    print(row['Name'], 'Not found')
             else:
                 print('I dunno what this is...', r.status_code)
                 pass
