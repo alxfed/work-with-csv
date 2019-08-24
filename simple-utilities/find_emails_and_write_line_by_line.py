@@ -62,7 +62,7 @@ with open(file_path) as f:
             if r.status_code > 202:
                 """errors
                 """
-                print('Errors happen... ', r.status_code)
+                print('Errors happen... ', payload, r.status_code)
                 pass
             elif r.status_code < 203:
                 timeout = False
@@ -89,9 +89,9 @@ with open(file_path) as f:
                     row.update({'email_class': resp['email_class']})
                     print(row['Name'], row['emails'], row['email_class'])
                 elif timeout:
-                    print(row['Name'], 'Timeout')
+                    print(payload, 'Timeout')
                 elif not_found:
-                    print(row['Name'], 'Not found')
+                    print(payload, 'Not found')
             else:
                 print('I dunno what this is...', r.status_code)
                 pass
