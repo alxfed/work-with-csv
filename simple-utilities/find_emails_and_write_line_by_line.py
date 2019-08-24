@@ -54,6 +54,8 @@ with open(file_path) as f:
             row.update({'email_class': ''})
             pass
         else:
+            row.update({'emails': ''})
+            row.update({'email_class': ''})
             tsd, td, tsu = extract(website)  # tldextract
             payload = {'domain': td + '.' + tsu,
                        'company_name': row['Name']}
@@ -83,7 +85,7 @@ with open(file_path) as f:
                         if attempts > 10:
                             timeout = True
                             break
-                if not timeout or not_found:
+                if not timeout and not not_found:
                     resp = r.json()
                     row.update({'emails': " ".join(resp['emails'])})
                     row.update({'email_class': resp['email_class']})
