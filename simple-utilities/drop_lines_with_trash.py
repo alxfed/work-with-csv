@@ -5,6 +5,7 @@ given: a csv file with a list of objects that may have a value of the
 needed: a csv file with these lines dropped
 """
 import csv
+from tldextract import extract
 
 
 read_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_processed.csv'
@@ -37,6 +38,9 @@ with open(read_path) as f:
         else:
             if row['Website']:
                 if NotTrash(row['Website'], trash_list):
+                    tsd, td, tsu = extract(row['Website'])  # tldextract
+                    domain_name = td + '.' + tsu
+                    row['Website'] = domain_name
                     rows.append(row)
                     seen.add(row['Name'])
                 else:
