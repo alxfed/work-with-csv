@@ -13,10 +13,11 @@ write_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_final.csv
 leftowers_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_leftowers.csv'
 
 
-trash_list = ['houzz', 'yelp', 'lowes', 'homedepot', 'facebook',
+trash_list = ['houzz', 'yelp', 'yahoo', 'lowes', 'homedepot', 'facebook',
               'blogspot', 'wix', 'smithe', 'sbcglobal', 'ymail',
               'mac', 'twitter', 'aol', 'linkedin', 'google', 'gmail',
-              'artvan', 'nu-tub', 'https', 'icloud', 'me.com', 'fb.me']
+              'artvan', 'nu-tub', 'https', 'icloud', 'me.com', 'fb.me',
+              'tinyurl', 'vpweb', 'weebly', 'rebath']
 
 fieldnames = []
 rows = []
