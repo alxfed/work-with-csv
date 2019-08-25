@@ -17,7 +17,7 @@ trash_list = ['houzz', 'yelp', 'yahoo', 'lowes', 'homedepot', 'facebook',
               'blogspot', 'wix', 'smithe', 'sbcglobal', 'ymail',
               'mac', 'twitter', 'aol', 'linkedin', 'google', 'gmail',
               'artvan', 'nu-tub', 'https', 'icloud', 'me.com', 'fb.me',
-              'tinyurl', 'vpweb', 'weebly', 'rebath']
+              'tinyurl', 'vpweb', 'weebly', 'rebath', 'bathfitter']
 
 fieldnames = []
 rows = []
