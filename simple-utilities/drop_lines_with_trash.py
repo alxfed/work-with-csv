@@ -33,7 +33,7 @@ with open(read_path) as f:
     f_csv = csv.DictReader(f)
     for row in f_csv:
         if row['Name'] in seen:
-            pass
+            lrows.append(row)
         else:
             if row['Website']:
                 if NotTrash(row['Website'], trash_list):
