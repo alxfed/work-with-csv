@@ -17,7 +17,8 @@ trash_list = ['houzz', 'yelp', 'yahoo', 'lowes', 'homedepot', 'facebook',
               'blogspot', 'wix', 'smithe', 'sbcglobal', 'ymail',
               'mac', 'twitter', 'aol', 'linkedin', 'google', 'gmail',
               'artvan', 'nu-tub', 'https', 'icloud', 'me.com', 'fb.me',
-              'tinyurl', 'vpweb', 'weebly', 'rebath', 'bathfitter']
+              'tinyurl', 'vpweb', 'weebly', 'rebath', 'bathfitter',
+              'bbb.org', ' org.']
 
 fieldnames = []
 rows = []
@@ -39,7 +40,8 @@ with open(read_path) as f:
         else:
             if row['Website']:
                 if NotTrash(row['Website'], trash_list):
-                    tsd, td, tsu = extract(row['Website'])  # tldextract
+                    website = row['Website'].lower()
+                    tsd, td, tsu = extract(website)  # tldextract
                     domain_name = td + '.' + tsu
                     row['Website'] = domain_name
                     rows.append(row)
