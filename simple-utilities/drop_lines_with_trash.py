@@ -9,6 +9,7 @@ import csv
 read_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath_unprocessed.csv'
 write_path = '/media/alxfed/toca/aa-crm/enrich/kitchen_and_bath.csv'
 
+
 trash_list = ['houzz', 'yelp', 'lowes', 'homedepot', 'facebook',
               'blogspot', 'wix', 'smithe', 'sbcglobal', 'ymail',
               'mac', 'twitter', 'aol', 'linkedin', 'google', 'gmail',

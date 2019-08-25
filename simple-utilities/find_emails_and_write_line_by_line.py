@@ -15,6 +15,7 @@ import requests
 # constants
 file_path = '/media/alxfed/toca/aa-crm/enrich/interior.csv'
 output_file_path = '/media/alxfed/toca/aa-crm/enrich/interior_with_emails.csv'
+line_by_line_write = '/media/alxfed/toca/aa-crm/enrich/line_by_line_emails.csv'
 credits_check_url = 'https://api.anymailfinder.com/v4.1/account/hits_left.json'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
 api_key = environ['API_KEY']
@@ -64,7 +65,12 @@ with open(file_path) as f:
             if r.status_code > 202:
                 """errors
                 """
-                print('Errors happen... ', payload, r.status_code)
+                if r.status_code == 404:
+                    print(payload, ' Not Found')
+                elif r.status_code == 451:
+                    print(payload, ' Blacklisted')
+                else:
+                    print(payload, r.status_code)
                 pass
             elif r.status_code < 203:
                 timeout = False
@@ -76,18 +82,19 @@ with open(file_path) as f:
                                          headers=headers, json=payload)
                     if r.status_code == 200:
                         break
-                    elif r.status_code >= 400:
+                    elif r.status_code == 404:
                         not_found = True
                         break
                     else:
                         attempts += 1
                         print(attempts)
-                        if attempts > 10:
+                        if attempts > 20:
                             timeout = True
                             break
                 if not timeout and not not_found:
                     resp = r.json()
-                    row.update({'emails': " ".join(resp['emails'])})
+                    email_list = resp['emails']
+                    row.update({'emails': " ".join(email_list)})
                     row.update({'email_class': resp['email_class']})
                     print(row['Name'], row['emails'], row['email_class'])
                 elif timeout:
@@ -98,7 +105,7 @@ with open(file_path) as f:
                 print('I dunno what this is...', r.status_code)
                 pass
         rows.append(row)
-        with open('/media/alxfed/toca/aa-crm/enrich/line_by_line_emails.csv', 'a') as f:
+        with open(line_by_line_write, 'a') as f:
             f_csv = csv.DictWriter(f, fieldnames=fieldnames)
             f_csv.writerow(row)
 
