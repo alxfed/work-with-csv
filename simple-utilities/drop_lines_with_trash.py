@@ -8,8 +8,8 @@ import csv
 from tldextract import extract
 
 
-read_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_processed.csv'
-write_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_final.csv'
+read_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_final.csv'
+write_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_for_upload.csv'
 leftowers_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_leftowers.csv'
 
 
@@ -21,7 +21,7 @@ trash_list = ['houzz', 'yelp', 'yahoo.com', 'wordpress.com', 'lowes.com', 'homed
               'none yet', 'httnop', 'webs.com', 'facebook.', 'hotmail'
               'bbb.org', ' org.', 'att.net', 'shutterfly.com', 'none.', 'goo.gl',
               'live.com', '.na', 'xom.', 'joel.', 'chivis.', '.website', 'con.',
-              'coming soon.']
+              'coming soon.', 'groupon.com', 'angieslist']
 
 fieldnames = []
 rows = []
