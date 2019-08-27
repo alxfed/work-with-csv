@@ -13,9 +13,9 @@ import requests
 
 
 # constants
-file_path = '/media/alxfed/toca/aa-crm/enrich/interior.csv'
-output_file_path = '/media/alxfed/toca/aa-crm/enrich/interior_with_emails.csv'
-line_by_line_write = '/media/alxfed/toca/aa-crm/enrich/line_by_line_emails.csv'
+file_path = '/media/alxfed/toca/aa-crm/kb-designers/kitchen_and_bath_for_upload.csv'
+output_file_path = '/media/alxfed/toca/aa-crm/kb-designers/kitchen_and_bath_done.csv'
+line_by_line_write = '/media/alxfed/toca/aa-crm/kb-designers/line_by_line.csv'
 credits_check_url = 'https://api.anymailfinder.com/v4.1/account/hits_left.json'
 api_url = 'https://api.anymailfinder.com/v4.1/search/company.json'
 api_key = environ['API_KEY']
@@ -52,7 +52,7 @@ with open(file_path) as f:
         website = row['Website']
         if not website:  # check whether there is a website
             row.update({'emails': ''})
-            row.update({'email_class': ''})
+            row.update({'email_class': 'no_domain'})
             pass
         else:
             row.update({'emails': ''})
@@ -66,9 +66,11 @@ with open(file_path) as f:
                 """errors
                 """
                 if r.status_code == 404:
-                    print(payload, ' Not Found')
+                    row.update({'email_class': 'not_found'})
+                    print(payload, 'not_found')
                 elif r.status_code == 451:
-                    print(payload, ' Blacklisted')
+                    row.update({'email_class': 'blacklisted'})
+                    print(payload, 'blacklisted')
                 else:
                     print(payload, r.status_code)
                 pass
@@ -87,7 +89,7 @@ with open(file_path) as f:
                         break
                     else:
                         attempts += 1
-                        print(attempts)
+                        print(attempts, ' - still waiting...')
                         if attempts > 20:
                             timeout = True
                             break
@@ -98,8 +100,10 @@ with open(file_path) as f:
                     row.update({'email_class': resp['email_class']})
                     print(row['Name'], row['emails'], row['email_class'])
                 elif timeout:
+                    row.update({'email_class': 'timeout'})
                     print(payload, 'Timeout')
                 elif not_found:
+                    row.update({'email_class': 'not_found'})
                     print(payload, 'Not found')
             else:
                 print('I dunno what this is...', r.status_code)

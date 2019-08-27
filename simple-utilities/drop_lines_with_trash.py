@@ -8,9 +8,9 @@ import csv
 from tldextract import extract
 
 
-read_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_final.csv'
-write_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_for_upload.csv'
-leftowers_path = '/media/alxfed/toca/aa-crm/kb-remodelers/kitchen_and_bath_leftowers.csv'
+read_path = '/media/alxfed/toca/aa-crm/kb-designers/kitchen_and_bath_designers.csv'
+write_path = '/media/alxfed/toca/aa-crm/kb-designers/kitchen_and_bath_for_upload.csv'
+leftowers_path = '/media/alxfed/toca/aa-crm/kb-designers/kitchen_and_bath_leftowers.csv'
 
 
 trash_list = ['houzz', 'yelp', 'yahoo.com', 'wordpress.com', 'lowes.com', 'homedepot', 'facebook',
