@@ -6,15 +6,17 @@ needed: the part of the initial file that requires a re-run, the part of the
 """
 import csv
 
-processed_file_path = '/media/alxfed/toca/aa-crm/kb-designers/kb_designers_with_emails.csv'
-good_job_path = '/media/alxfed/toca/aa-crm/kb-designers/kitchen_and_bath_remodelers_with_emails.csv'
-not_to_redo_path = '/media/alxfed/toca/aa-crm/kb-remodelers/not_to_redo.csv'
+processed_file_path = '/media/alxfed/toca/aa-crm/int-desanddec/interior_designers_processed.csv'
+good_job_path = '/media/alxfed/toca/aa-crm/int-desanddec/interior_designers_with_emails_all.csv'
+not_to_redo_path = '/media/alxfed/toca/aa-crm/int-desanddec/not_to_redo.csv'
+redo_path = '/media/alxfed/toca/aa-crm/int-desanddec/redo.csv'
 
 # find out what records _do not_ require reprocessing
 
 fieldnames = []
 good_job = []
 not_to_redo = []
+redo = []
 
 
 with open(processed_file_path, 'r') as f:
@@ -27,10 +29,12 @@ with open(processed_file_path, 'r') as f:
         elif cla == 'not_verified':
             not_to_redo.append(row)
             good_job.append(row)
-        elif cla == 'Not found':
+        elif cla == 'not_found':
             not_to_redo.append(row)
-        elif cla == 'Blacklisted':
+        elif cla == 'blacklisted':
             not_to_redo.append(row)
+        else:
+            redo.append(row)
     fieldnames = f_csv._fieldnames
 
 with open(good_job_path,'w') as f:
