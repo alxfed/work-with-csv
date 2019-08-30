@@ -7,8 +7,8 @@ needed: a csv file with objects that have this value sythesized from
 import csv
 
 
-read_path = '/media/alxfed/toca/aa-crm/enrich/interior_designers_with_websites.csv'
-write_path = '/media/alxfed/toca/aa-crm/enrich/interior_designers_with_websites_and_added_phone.csv'
+read_path = '/media/alxfed/toca/aa-crm/uploads/interior_designers_with_emails_all.csv'
+write_path = '/media/alxfed/toca/aa-crm/uploads/interior_designers_with_emails_and_added_phone.csv'
 
 fieldnames = []
 rows = []

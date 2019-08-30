@@ -13,8 +13,8 @@ write_path = '/media/alxfed/toca/aa-crm/int-desanddec/int_designers_and_dec_for_
 leftowers_path = '/media/alxfed/toca/aa-crm/int-desanddec/int_designers_and_dec_leftowers.csv'
 
 
-trash_list = ['houzz', 'yelp', 'yahoo.com', 'wordpress.com', 'lowes.com', 'homedepot', 'facebook',
-              'blogspot', 'wix', 'smithe', 'sbcglobal', 'ymail',
+trash_list = ['houzz', 'yelp', 'yahoo.com', 'wordpress.com', 'lowes.com', 'homedepot',
+              'facebook', 'blogspot', 'wix', 'smithe', 'sbcglobal', 'ymail',
               'mac', 'twitter', 'aol', 'linkedin', 'google', 'gmail',
               'artvan', 'nu-tub', 'https', 'icloud', 'me.com', 'fb.me',
               'tinyurl', 'vpweb', 'weebly', 'rebath', 'bathfitter',

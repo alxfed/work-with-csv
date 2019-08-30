@@ -46,3 +46,9 @@ with open(not_to_redo_path,'w') as f:
     f_csv = csv.DictWriter(f, fieldnames)
     f_csv.writeheader()
     f_csv.writerows(not_to_redo)
+
+with open(redo_path,'w') as f:
+    f_csv = csv.DictWriter(f, fieldnames)
+    f_csv.writeheader()
+    f_csv.writerows(redo)
+
