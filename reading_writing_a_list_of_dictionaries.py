@@ -16,8 +16,8 @@ with open(input_file_path) as f:
     for row in csv_odict:
         rows.append(row)
     fieldnames = csv_odict._fieldnames  # after reading all the rows it borrows this
-                                    # 'protected field' from the object. Otherwise
-                                    # it is unclear how to set the headers for writing.
+                                        # 'protected field' from the object. Otherwise
+                                        # it is unclear how to set the (mandatory) headers for writing.
 
 with open(output_file_path,'w') as f:
     f_csv = csv.DictWriter(f, fieldnames=fieldnames)
