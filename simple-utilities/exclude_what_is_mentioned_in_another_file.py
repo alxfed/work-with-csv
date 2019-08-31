@@ -14,8 +14,8 @@ import os
 
 
 read_path = '/media/alxfed/toca/aa-crm/uploads/interior_designers_with_emails_and_added_phone.csv'
-reference_path = '/media/alxfed/toca/aa-crm/uploads/all-companies.csv'
-write_path = '/media/alxfed/toca/aa-crm/uploads/new-companies.csv'
+reference_path = '/media/alxfed/toca/aa-crm/uploads/hubspot-crm-exports-all-companies-2019-08-31-1.csv'
+# write_path = '/media/alxfed/toca/aa-crm/uploads/new-companies.csv'
 write_excluded_path = '/media/alxfed/toca/aa-crm/uploads/known-companies.csv'
 write_new_entities = '/media/alxfed/toca/aa-crm/uploads/new_companies.csv'
 
