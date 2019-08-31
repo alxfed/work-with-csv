@@ -1,5 +1,5 @@
 """
-Reading rows of a csv file line by line, doing something with lines,
+Reading rows of a csv file line by line, doing something with the read line,
     writing the resulting line after each transformation.
 """
 import csv
