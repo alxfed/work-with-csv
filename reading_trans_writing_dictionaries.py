@@ -6,13 +6,11 @@ import csv
 
 
 input_file_path = '/media/alxfed/toca/aa-crm/preparation/unknown_companies.csv'
-input_field_names = ['Name', 'Street Address', 'Company Owner',
-                     'Lead Status', 'Phone Landline', 'Phone Mobile',
-                     'Phone Toll', 'Phone Unidentified', 'Phone VoIP']
+# input field names that are needed; other will go to 'rest'
+input_field_names = ['Name', 'Street Address', 'Lead Status']
 output_file_path = '/media/alxfed/toca/aa-crm/preparation/other_unknown_companies.csv'
-output_field_names = ['Name', 'Street Address', 'Company Owner',
-                      'Lead Status', 'Phone Landline', 'Phone Mobile',
-                      'Phone Toll', 'Phone Unidentified', 'Phone VoIP']
+# input field names that will be written
+output_field_names = ['Name', 'Street Address', 'Lead Status', 'Index']
 
 
 def writeline(filepath, line):
@@ -32,10 +30,11 @@ with open(output_file_path,'w') as f:
 with open(input_file_path) as f:
     csv_odict = csv.DictReader(f, fieldnames=input_field_names,
                                restkey='rest', restval='')
-    _ = next(csv_odict)
+    next(csv_odict)
     for row in csv_odict:
         # do something with the row
-        row.pop('Company Owner', default=None)
-        ind += 1
+        row.pop('rest', default=None)
+        row.update({'Index': ind})
+        row.move_to_end('Index', last=False)
         writeline(output_file_path, row)
-        print('ok', ind)
+        ind += 1
