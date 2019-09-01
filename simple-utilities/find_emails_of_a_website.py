@@ -7,7 +7,6 @@ from os import environ
 from sys import exit
 import time
 from tldextract import extract
-from collections import OrderedDict
 import requests
 
 

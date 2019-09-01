@@ -1,16 +1,16 @@
+"""
+pandas formatting during parsing:
+https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html
+"""
+
+
 import csv
-from os import environ
-from sys import exit
-import time
-from tldextract import extract
-from collections import OrderedDict
-import requests
-from email.utils import parseaddr
+import pandas as pd
 
 
-email = 'alex.fedotov@aol.com'
+file_path = '/media/alxfed/toca/aa-crm/file/companies.csv'
 
-left_side, right_side = email.split('@')
-name, surname = left_side.split('.')
+companies = pd.read_csv(file_path)
+
 
 print('ok')
