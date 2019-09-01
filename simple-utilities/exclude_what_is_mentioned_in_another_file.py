@@ -13,11 +13,11 @@ import pandas as pd
 import os
 
 
-read_path = '/media/alxfed/toca/aa-crm/uploads/interior_designers_with_emails_and_added_phone.csv'
-reference_path = '/media/alxfed/toca/aa-crm/uploads/hubspot-crm-exports-all-companies-2019-08-31-1.csv'
+read_path = '/media/alxfed/toca/aa-crm/kb-remodelers/upload/kitchen_and_bath_remodelers_with_emails_all_ready.csv'
+reference_path = '/media/alxfed/toca/aa-crm/kb-remodelers/upload/all-companies.csv'
 # write_path = '/media/alxfed/toca/aa-crm/uploads/new-companies.csv'
-write_excluded_path = '/media/alxfed/toca/aa-crm/uploads/known-companies.csv'
-write_new_entities = '/media/alxfed/toca/aa-crm/uploads/new_companies.csv'
+write_excluded_path = '/media/alxfed/toca/aa-crm/kb-remodelers/upload/known_companies_with_emails.csv'
+write_new_entities = '/media/alxfed/toca/aa-crm/kb-remodelers/upload/new_companies_with_emails.csv'
 
 reference = pd.read_csv(reference_path)
 known_entities = reference['Name'].values
@@ -28,7 +28,7 @@ new_entities_rows = []
 headers = ['Name', 'Type', 'Category', 'Phone Number', 'Phone Contact',
            'Phone Mobile', 'Phone Voip', 'Phone Toll', 'Phone Landline',
            'Phone Unknown', 'Address', 'City', 'State', 'Zipcode',
-           'Linkedin', 'Facebook', 'Twitter', 'Website',
+           'Linkedin', 'Facebook', 'Google', 'Twitter', 'Website',
            'emails', 'email_class']
 
 seen = set()
