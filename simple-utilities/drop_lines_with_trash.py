@@ -21,7 +21,7 @@ trash_list = ['houzz', 'yelp', 'yahoo.com', 'wordpress.com', 'lowes.com', 'homed
               'none yet', 'httnop', 'webs.com', 'facebook.', 'hotmail'
               'bbb.org', ' org.', 'att.net', 'shutterfly.com', 'none.', 'goo.gl',
               'live.com', '.na', 'xom.', 'joel.', 'chivis.', '.website', 'con.',
-              'coming soon.', 'groupon.com', 'angieslist']
+              'coming soon.', 'groupon.com', 'angieslist', 'manta']
 
 fieldnames = []
 rows = []
