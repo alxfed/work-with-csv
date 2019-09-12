@@ -13,11 +13,11 @@ import pandas as pd
 import os
 
 
-read_path = '/media/alxfed/toca/aa-crm/kb-remodelers/upload/kitchen_and_bath_remodelers_with_emails_all_ready.csv'
-reference_path = '/media/alxfed/toca/aa-crm/kb-remodelers/upload/all-companies.csv'
+read_path = '/media/alxfed/toca/aa-crm/int-desanddec/upload/id_with_emails_and_phone_all.csv'
+reference_path = '/media/alxfed/toca/aa-crm/int-desanddec/upload/all-companies.csv'
 # write_path = '/media/alxfed/toca/aa-crm/uploads/new-companies.csv'
-write_excluded_path = '/media/alxfed/toca/aa-crm/kb-remodelers/upload/known_companies_with_emails.csv'
-write_new_entities = '/media/alxfed/toca/aa-crm/kb-remodelers/upload/new_companies_with_emails.csv'
+write_excluded_path = '/media/alxfed/toca/aa-crm/int-desanddec/upload/known_companies_with_emails.csv'
+write_new_entities = '/media/alxfed/toca/aa-crm/int-desanddec/upload/new_companies_with_emails.csv'
 
 reference = pd.read_csv(reference_path)
 known_entities = reference['Name'].values
