@@ -12,6 +12,8 @@ def main():
     df = pd.read_csv('FILE_PATH')
     df.replace([np.inf, -np.inf], np.nan, inplace=True)
     df.fillna(0, inplace=True)
+    # or
+    # ? df.isin([np.inf, -np.inf, np.nan]).any()
     return
 
 
